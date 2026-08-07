@@ -8,6 +8,7 @@
         :root {
             --border-cyan: #00f0ff;
             --text-main: #ffffff;
+            --neon-red: #ff0055;
         }
 
         /* Đồng bộ phông chữ Times New Roman */
@@ -53,88 +54,98 @@
             align-items: center;
         }
 
-        /* HEADER & LIQUID GLASS */
+        /* HEADER GAMING / CYBERPUNK HUD (GỘP CHUNG 1 KHUNG, BỎ LIQUID GLASS) */
         header {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 380px;
+        }
+
+        .gaming-box {
+            position: relative;
+            background: rgba(10, 15, 25, 0.75);
+            padding: 18px 25px;
+            border: 2px solid var(--border-cyan);
+            /* Cắt góc kiểu Gaming Cyberpunk HUD */
+            clip-path: polygon(
+                15px 0, 100% 0, 
+                100% calc(100% - 15px), calc(100% - 15px) 100%, 
+                0 100%, 0 15px
+            );
+            box-shadow: 
+                0 0 15px rgba(0, 240, 255, 0.4),
+                inset 0 0 15px rgba(0, 240, 255, 0.15);
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
 
-        .glass-box {
-            position: relative;
-            padding: 15px 30px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 
-                0 8px 32px 0 rgba(0, 240, 255, 0.25),
-                inset 0 0 15px rgba(255, 255, 255, 0.1);
-            display: inline-block;
-            margin-bottom: 12px;
-            overflow: hidden;
-        }
-
-        .glass-box::before {
+        /* Chi tiết trang trí góc Gaming */
+        .gaming-box::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0,240,255,0.3) 0%, rgba(255,0,85,0.3) 50%, transparent 70%);
-            animation: liquidRotate 6s linear infinite;
-            z-index: -1;
-            pointer-events: none;
+            top: 0;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--neon-red);
+            box-shadow: 0 0 8px var(--neon-red);
         }
 
-        @keyframes liquidRotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .gaming-box::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--border-cyan);
+            box-shadow: 0 0 8px var(--border-cyan);
         }
 
-        .rainbow-3d-title {
-            font-size: 2.3rem;
+        .gaming-title {
+            font-size: 2.2rem;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
             line-height: 1.1;
-            background: linear-gradient(
-                90deg, 
-                #ff0055, #ff7300, #fffb00, #48ff00, #00ffd5, #002bfd, #7a00ff, #ff00c8, #ff0055
-            );
+            background: linear-gradient(90deg, #00f0ff, #ffffff, #ff0055);
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(2px 2px 0px #000) drop-shadow(0px 0px 15px rgba(0, 240, 255, 0.8));
-            animation: rainbowFlow 3s linear infinite;
+            filter: drop-shadow(0px 0px 8px rgba(0, 240, 255, 0.8));
+            animation: textGlow 3s linear infinite;
         }
 
-        @keyframes rainbowFlow {
+        @keyframes textGlow {
             0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
+            50% { background-position: 100% center; }
+            100% { background-position: 0% center; }
         }
 
-        header p {
-            font-size: 1.2rem;
-            color: #00f0ff;
+        .gaming-subtitle {
+            font-size: 1.15rem;
+            color: var(--border-cyan);
             text-transform: uppercase;
             font-weight: bold;
-            margin-top: 5px;
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+            border-top: 1px solid rgba(0, 240, 255, 0.3);
+            padding-top: 6px;
+            width: 100%;
         }
 
-        /* KHUNG BỐ CỤC NÚT (Bé lại & Căn giữa) */
+        /* KHUNG BỐ CỤC NÚT */
         .unlock-container {
             display: flex;
             flex-direction: column;
             gap: 16px;
             align-items: center;
             width: 100%;
-            max-width: 360px; /* Thu gọn vừa vặn giống mẫu */
+            max-width: 360px;
             margin: 0 auto;
         }
 
@@ -151,7 +162,7 @@
             text-transform: uppercase;
             text-decoration: none;
             color: #ffffff;
-            border-radius: 12px; /* Bo góc mềm mại như hình mẫu */
+            border-radius: 12px;
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             position: relative;
             cursor: pointer;
@@ -165,7 +176,7 @@
             flex-shrink: 0;
         }
 
-        /* TRẠNG THÁI KHÓA (Ẩn nhẹ trong nền, KHÔNG BỊ TỐI ĐEN) */
+        /* TRẠNG THÁI KHÓA (Nút ẩn nhẹ trong nền, KHÔNG BỊ TỐI ĐEN) */
         .unlock-btn.disabled {
             background: rgba(255, 255, 255, 0.05) !important;
             backdrop-filter: blur(8px);
@@ -210,7 +221,7 @@
             box-shadow: 0 6px 25px rgba(0, 240, 255, 0.7);
         }
 
-        /* Nút Mở Khoá Để Tải - Active (Giống màu UNLOCK ở mẫu) */
+        /* Nút Mở Khoá Để Tải - Active */
         .btn-download:not(.disabled) {
             background: linear-gradient(135deg, #e91e63 0%, #ff0055 100%);
             color: #ffffff;
@@ -304,11 +315,12 @@
     <canvas id="matrix-canvas"></canvas>
 
     <div class="container">
+        <!-- HEADER CYBERPUNK / GAMING KHUNG GỘP CHUNG -->
         <header>
-            <div class="glass-box">
-                <h1 class="rainbow-3d-title">Plat • Dex</h1>
+            <div class="gaming-box">
+                <h1 class="gaming-title">Plat • Dex</h1>
+                <div class="gaming-subtitle">Mở Khoá Để Tải</div>
             </div>
-            <p>Mở Khoá Để Tải</p>
         </header>
 
         <main class="unlock-container">
@@ -321,7 +333,7 @@
                 <span id="txt-step1">Follow TikTok</span>
             </button>
 
-            <!-- Nút 2: Channel Telegram (Ban đầu khóa - mờ ẩn vào nền) -->
+            <!-- Nút 2: Channel Telegram -->
             <button id="btn-step2" class="unlock-btn btn-telegram disabled" onclick="processStep(2, 'https://t.me/plat_shareios')">
                 <svg viewBox="0 0 24 24">
                     <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-2.01 9.48c-.15.68-.55.84-1.12.52l-3.1-2.28-1.5 1.44c-.17.17-.31.31-.63.31l.22-3.17 5.77-5.21c.25-.22-.05-.34-.39-.12l-7.13 4.49-3.07-.96c-.67-.21-.68-.67.14-.99l12.01-4.63c.56-.21 1.05.13.83.92z"/>
@@ -329,7 +341,7 @@
                 <span id="txt-step2">Channel Telegram</span>
             </button>
 
-            <!-- Nút 3: Mở Khóa Để Tải (Khóa cho đến khi hoàn thành 1 & 2) -->
+            <!-- Nút 3: Mở Khóa Để Tải -->
             <button id="btn-step3" class="unlock-btn btn-download disabled" onclick="downloadFile()">
                 <svg viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14v-4H8l4-4 4 4h-3v4h-2z"/>
@@ -363,7 +375,7 @@
         </svg>
     </a>
 
-    <!-- SCRIPT CHẠY MATRIX VÀ SUBUNLOCK NỐI TIẾP -->
+    <!-- SCRIPT CHẠY MATRIX VÀ SUBUNLOCK -->
     <script>
         let step1Completed = false;
         let step2Completed = false;
