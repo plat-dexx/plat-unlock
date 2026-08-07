@@ -29,7 +29,7 @@
             overflow-x: hidden;
         }
 
-        /* CANVAS MATRIX CODE BACKGROUND */
+        /* CANVAS MATRIX BACKGROUND */
         #matrix-canvas {
             position: fixed;
             top: 0;
@@ -38,7 +38,7 @@
             height: 100vh;
             z-index: 0;
             pointer-events: none;
-            opacity: 0.45;
+            opacity: 0.35;
         }
 
         .container {
@@ -48,21 +48,23 @@
             flex: 1;
             position: relative;
             z-index: 1;
-        }
-
-        /* HEADER & KHUNG LIQUID GLASS MỜ DÀNH CHO PLAT • DEX */
-        header {
-            text-align: center;
-            margin-bottom: 35px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* KHUNG LIQUID GLASS */
+        /* HEADER & LIQUID GLASS */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .glass-box {
             position: relative;
-            padding: 20px 30px;
+            padding: 15px 25px;
             border-radius: 20px;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(12px);
@@ -72,9 +74,8 @@
                 0 8px 32px 0 rgba(0, 240, 255, 0.25),
                 inset 0 0 15px rgba(255, 255, 255, 0.1);
             display: inline-block;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             overflow: hidden;
-            transition: all 0.4s ease;
         }
 
         .glass-box::before {
@@ -95,14 +96,12 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* TIÊU ĐỀ PLAT • DEX */
         .rainbow-3d-title {
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             line-height: 1.1;
-            
             background: linear-gradient(
                 90deg, 
                 #ff0055, #ff7300, #fffb00, #48ff00, #00ffd5, #002bfd, #7a00ff, #ff00c8, #ff0055
@@ -110,12 +109,8 @@
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            
-            filter: drop-shadow(2px 2px 0px #000) 
-                    drop-shadow(-1px -1px 0px #000)
-                    drop-shadow(0px 0px 15px rgba(0, 240, 255, 0.8));
-
-            animation: rainbowFlow 3s linear infinite, glowPulse 1.5s ease-in-out infinite alternate;
+            filter: drop-shadow(2px 2px 0px #000) drop-shadow(0px 0px 15px rgba(0, 240, 255, 0.8));
+            animation: rainbowFlow 3s linear infinite;
         }
 
         @keyframes rainbowFlow {
@@ -123,19 +118,8 @@
             100% { background-position: 200% center; }
         }
 
-        @keyframes glowPulse {
-            0% {
-                filter: drop-shadow(2px 2px 0px #000) 
-                        drop-shadow(0px 0px 10px rgba(255, 0, 128, 0.8));
-            }
-            100% {
-                filter: drop-shadow(3px 3px 0px #000) 
-                        drop-shadow(0px 0px 25px rgba(0, 240, 255, 1));
-            }
-        }
-
         header p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #00f0ff;
             text-transform: uppercase;
             font-weight: bold;
@@ -143,13 +127,15 @@
             text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
         }
 
-        /* SUBUNLOCK BOX */
+        /* KHUNG NÚT GỌN BÉ NẰM GIỮA TRANG */
         .unlock-container {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
             align-items: center;
-            margin-top: 10px;
+            width: 100%;
+            max-width: 320px; /* Thu nhỏ chiều rộng nút */
+            margin: 0 auto;
         }
 
         .unlock-btn {
@@ -157,64 +143,87 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            padding: 16px 20px;
-            font-size: 1.2rem;
+            gap: 10px;
+            padding: 12px 16px;
+            font-size: 1rem;
             font-weight: bold;
             text-transform: uppercase;
             text-decoration: none;
             color: #ffffff;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            border-radius: 6px;
+            transition: all 0.4s ease;
             position: relative;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             cursor: pointer;
-        }
-
-        /* Nút TikTok */
-        .btn-tiktok {
-            background: linear-gradient(135deg, #000000 0%, #ee1d52 50%, #69c9d0 100%);
-            border: 1px solid #ee1d52;
-            clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
-        }
-
-        .btn-tiktok:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 0 25px rgba(238, 29, 82, 0.8);
-        }
-
-        /* Nút Telegram */
-        .btn-telegram {
-            background: linear-gradient(135deg, #0088cc 0%, #00f0ff 100%);
-            border: 1px solid #00f0ff;
-            clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
-        }
-
-        .btn-telegram:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.8);
-        }
-
-        /* Nút Mở Khoá Để Tải (Mới thêm) */
-        .btn-download-unlock {
-            background: linear-gradient(135deg, #ff7300 0%, #fffb00 100%);
-            color: #000000;
-            border: 1px solid #fffb00;
-            clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
-            box-shadow: 0 0 15px rgba(255, 251, 0, 0.5);
-            margin-top: 5px;
-        }
-
-        .btn-download-unlock:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 0 30px rgba(255, 251, 0, 0.9);
-            background: linear-gradient(135deg, #fffb00 0%, #ff7300 100%);
+            border: 1px solid transparent;
+            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
         }
 
         .unlock-btn svg {
-            width: 28px;
-            height: 28px;
+            width: 20px;
+            height: 20px;
             fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        /* TRẠNG THÁI KHÓA (LOCKED) */
+        .unlock-btn.disabled {
+            background: #1a1a1a !important;
+            color: #666666 !important;
+            border-color: #333333 !important;
+            cursor: not-allowed !important;
+            box-shadow: none !important;
+            opacity: 0.6;
+        }
+
+        .unlock-btn.disabled svg {
+            fill: #666666 !important;
+        }
+
+        /* TRẠNG THÁI ĐÃ HOÀN THÀNH (COMPLETED) */
+        .unlock-btn.completed {
+            background: linear-gradient(135deg, #00b09b, #96c93d) !important;
+            color: #ffffff !important;
+            border-color: #00ff88 !important;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.6) !important;
+        }
+
+        /* Nút TikTok - Active */
+        .btn-tiktok:not(.disabled):not(.completed) {
+            background: linear-gradient(135deg, #000000 0%, #ee1d52 50%, #69c9d0 100%);
+            border-color: #ee1d52;
+        }
+        .btn-tiktok:not(.disabled):hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 0 20px rgba(238, 29, 82, 0.8);
+        }
+
+        /* Nút Telegram - Active */
+        .btn-telegram:not(.disabled):not(.completed) {
+            background: linear-gradient(135deg, #0088cc 0%, #00f0ff 100%);
+            border-color: #00f0ff;
+        }
+        .btn-telegram:not(.disabled):hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.8);
+        }
+
+        /* Nút Mở Khoá Để Tải - Active */
+        .btn-download:not(.disabled) {
+            background: linear-gradient(135deg, #ff7300 0%, #fffb00 100%);
+            color: #000000;
+            border-color: #fffb00;
+            box-shadow: 0 0 15px rgba(255, 251, 0, 0.6);
+            animation: pulseGlow 1.5s infinite alternate;
+        }
+        .btn-download:not(.disabled):hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 0 25px rgba(255, 251, 0, 1);
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 10px rgba(255, 251, 0, 0.5); }
+            100% { box-shadow: 0 0 22px rgba(255, 251, 0, 0.9); }
         }
 
         /* FOOTER */
@@ -222,8 +231,8 @@
             width: 100%;
             background: transparent;
             border-top: 2px solid var(--border-cyan);
-            padding: 35px 20px;
-            margin-top: 50px;
+            padding: 30px 20px;
+            margin-top: 40px;
             text-align: center;
             position: relative;
             z-index: 1;
@@ -236,22 +245,20 @@
 
         .footer-info h3 {
             color: var(--border-cyan);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             font-size: 1.1rem;
             font-weight: bold;
             text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
         }
 
         .footer-info p {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             color: #ffffff;
-            font-size: 1.1rem;
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+            font-size: 1rem;
         }
 
         .map-container {
-            margin-top: 20px;
+            margin-top: 15px;
             width: 100%;
             overflow: hidden;
             border: 1px solid var(--border-cyan);
@@ -261,49 +268,40 @@
 
         .map-container iframe {
             width: 100%;
-            height: 220px;
+            height: 200px;
             border: 0;
             filter: invert(90%) hue-rotate(180deg) contrast(1.2);
         }
 
-        /* NÚT TELEGRAM TRÒN FLOATING */
+        /* NÚT TELEGRAM FLOATING */
         .telegram-btn {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 60px;
-            height: 60px;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
             background: linear-gradient(135deg, #00f0ff, #0044ff);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
             z-index: 1000;
             border: 2px solid #ffffff;
         }
 
-        .telegram-btn:hover {
-            transform: scale(1.15) rotate(10deg);
-            box-shadow: 0 0 30px rgba(0, 240, 255, 1);
-        }
-
         .telegram-btn svg {
-            width: 30px;
-            height: 30px;
+            width: 25px;
+            height: 25px;
             fill: #ffffff;
-            margin-right: 2px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Canvas Matrix phủ toàn bộ màn hình -->
     <canvas id="matrix-canvas"></canvas>
 
     <div class="container">
-        <!-- Header -->
         <header>
             <div class="glass-box">
                 <h1 class="rainbow-3d-title">Plat • Dex</h1>
@@ -311,37 +309,36 @@
             <p>Mở Khoá Để Tải</p>
         </header>
 
-        <!-- Subunlock Buttons -->
         <main class="unlock-container">
             
-            <!-- Nút TikTok -->
-            <a href="https://www.tiktok.com/@duy_lee01" target="_blank" class="unlock-btn btn-tiktok">
+            <!-- Nút 1: Follow TikTok (Được ấn ngay) -->
+            <button id="btn-step1" class="unlock-btn btn-tiktok" onclick="processStep(1, 'https://www.tiktok.com/@duy_lee01')">
                 <svg viewBox="0 0 24 24">
                     <path d="M12.525 0h3.08c.089 1.488.75 2.83 1.8 3.82 1.05 1 2.45 1.57 3.965 1.62V8.58c-1.85 0-3.56-.56-4.985-1.52v7.1c0 4.14-3.36 7.5-7.5 7.5S1.39 18.3 1.39 14.16c0-4.14 3.36-7.5 7.5-7.5.38 0 .75.03 1.11.09V9.93c-.36-.08-.73-.12-1.11-.12-2.39 0-4.34 1.95-4.34 4.35 0 2.4 1.95 4.35 4.34 4.35 2.39 0 4.35-1.95 4.35-4.35V0z"/>
                 </svg>
-                Follow TikTok
-            </a>
+                <span id="txt-step1">1. Follow TikTok</span>
+            </button>
 
-            <!-- Nút Telegram -->
-            <a href="https://t.me/plat_shareios" target="_blank" class="unlock-btn btn-telegram">
+            <!-- Nút 2: Channel Telegram (Ban đầu bị khóa) -->
+            <button id="btn-step2" class="unlock-btn btn-telegram disabled" onclick="processStep(2, 'https://t.me/plat_shareios')">
                 <svg viewBox="0 0 24 24">
                     <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-2.01 9.48c-.15.68-.55.84-1.12.52l-3.1-2.28-1.5 1.44c-.17.17-.31.31-.63.31l.22-3.17 5.77-5.21c.25-.22-.05-.34-.39-.12l-7.13 4.49-3.07-.96c-.67-.21-.68-.67.14-.99l12.01-4.63c.56-.21 1.05.13.83.92z"/>
                 </svg>
-                Channel Telegram
-            </a>
+                <span id="txt-step2">2. Channel Telegram</span>
+            </button>
 
-            <!-- Nút Mở Khoá Để Tải (Nằm ngay dưới Telegram) -->
-            <a href="YOUR_DOWNLOAD_LINK_HERE" class="unlock-btn btn-download-unlock">
+            <!-- Nút 3: Mở Khóa Để Tải (Khóa cho đến khi làm xong 1 & 2) -->
+            <button id="btn-step3" class="unlock-btn btn-download disabled" onclick="downloadFile()">
                 <svg viewBox="0 0 24 24">
                     <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
                 </svg>
-                Mở Khoá Để Tải
-            </a>
+                <span id="txt-step3">Mở Khoá Để Tải</span>
+            </button>
 
         </main>
     </div>
 
-    <!-- Footer: Thông Tin Chủ Sở Hữu -->
+    <!-- Footer -->
     <footer>
         <div class="footer-info">
             <h3>THÔNG TIN CHỦ SỞ HỮU</h3>
@@ -358,15 +355,78 @@
         </div>
     </footer>
 
-    <!-- Icon Telegram Float -->
     <a href="https://t.me/plat_shareios" class="telegram-btn" target="_blank" aria-label="Telegram">
         <svg viewBox="0 0 24 24">
             <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-2.01 9.48c-.15.68-.55.84-1.12.52l-3.1-2.28-1.5 1.44c-.17.17-.31.31-.63.31l.22-3.17 5.77-5.21c.25-.22-.05-.34-.39-.12l-7.13 4.49-3.07-.96c-.67-.21-.68-.67.14-.99l12.01-4.63c.56-.21 1.05.13.83.92z"/>
         </svg>
     </a>
 
-    <!-- SCRIPT CHỮ NỀN MATRIX ĐA HƯỚNG LỘN XỘN -->
+    <!-- LOGIC MỞ KHÓA NỐI TIẾP & MATRIX CHẠY CHẬM -->
     <script>
+        // --- LOGIC SUBUNLOCK NỐI TIẾP ---
+        let step1Completed = false;
+        let step2Completed = false;
+
+        function processStep(stepNum, url) {
+            if (stepNum === 1 && !step1Completed) {
+                window.open(url, '_blank');
+                let count = 5;
+                const txt = document.getElementById('txt-step1');
+                txt.innerText = `Đang xác minh... (${count}s)`;
+
+                const timer = setInterval(() => {
+                    count--;
+                    if (count > 0) {
+                        txt.innerText = `Đang xác minh... (${count}s)`;
+                    } else {
+                        clearInterval(timer);
+                        step1Completed = true;
+                        txt.innerText = '✓ Đã Hoàn Thành';
+                        
+                        const btn1 = document.getElementById('btn-step1');
+                        btn1.classList.add('completed');
+
+                        // Mở khóa Nút 2
+                        const btn2 = document.getElementById('btn-step2');
+                        btn2.classList.remove('disabled');
+                    }
+                }, 1000);
+            } 
+            else if (stepNum === 2 && step1Completed && !step2Completed) {
+                window.open(url, '_blank');
+                let count = 5;
+                const txt = document.getElementById('txt-step2');
+                txt.innerText = `Đang xác minh... (${count}s)`;
+
+                const timer = setInterval(() => {
+                    count--;
+                    if (count > 0) {
+                        txt.innerText = `Đang xác minh... (${count}s)`;
+                    } else {
+                        clearInterval(timer);
+                        step2Completed = true;
+                        txt.innerText = '✓ Đã Hoàn Thành';
+
+                        const btn2 = document.getElementById('btn-step2');
+                        btn2.classList.add('completed');
+
+                        // Mở khóa Nút Tải
+                        const btn3 = document.getElementById('btn-step3');
+                        btn3.classList.remove('disabled');
+                    }
+                }, 1000);
+            }
+        }
+
+        function downloadFile() {
+            if (step1Completed && step2Completed) {
+                // Thay link file tải của bạn ở đây
+                window.location.href = "YOUR_FINAL_DOWNLOAD_LINK_HERE";
+            }
+        }
+
+
+        // --- MATRIX CANVAS CHẠY CHẬM VÀ KHÔNG ĐÈ CHỮ ---
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
 
@@ -378,8 +438,8 @@
         window.addEventListener('resize', resizeCanvas);
 
         const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ<>/{}[];:*&^%$#@!PLATDEX';
-        const fontSize = 14;
-        const totalStreams = 70;
+        const fontSize = 16;
+        const totalStreams = 45; // Giảm số luồng chữ để không bị đè dày đặc
         const streams = [];
 
         for (let i = 0; i < totalStreams; i++) {
@@ -405,14 +465,15 @@
                 dir: dir,
                 x: x,
                 y: y,
-                speed: 2 + Math.random() * 4,
-                length: 8 + Math.floor(Math.random() * 15),
-                chars: Array.from({length: 20}, () => chars.charAt(Math.floor(Math.random() * chars.length)))
+                speed: 0.8 + Math.random() * 1.2, // Tốc độ chạy rất chậm & mượt
+                length: 6 + Math.floor(Math.random() * 10),
+                spacing: 22, // Tăng khoảng cách các ký tự không bị đè lên nhau
+                chars: Array.from({length: 16}, () => chars.charAt(Math.floor(Math.random() * chars.length)))
             };
         }
 
         function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.12)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             ctx.font = fontSize + 'px monospace';
@@ -422,9 +483,10 @@
                     let charX = s.x;
                     let charY = s.y;
 
-                    if (s.dir === 0) charY -= j * fontSize;
-                    else if (s.dir === 1) charX -= j * fontSize;
-                    else if (s.dir === 2) charX += j * fontSize;
+                    // Tính khoảng cách chữ rời nhau bằng s.spacing
+                    if (s.dir === 0) charY -= j * s.spacing;
+                    else if (s.dir === 1) charX -= j * s.spacing;
+                    else if (s.dir === 2) charX += j * s.spacing;
 
                     if (j === 0) {
                         ctx.fillStyle = '#ffffff';
@@ -432,7 +494,7 @@
                         ctx.fillStyle = `rgba(0, 240, 255, ${1 - j / s.length})`;
                     }
 
-                    if (Math.random() < 0.05) {
+                    if (Math.random() < 0.02) {
                         s.chars[j] = chars.charAt(Math.floor(Math.random() * chars.length));
                     }
 
@@ -444,16 +506,16 @@
                 else if (s.dir === 2) s.x -= s.speed;
 
                 if (
-                    (s.dir === 0 && s.y - s.length * fontSize > canvas.height) ||
-                    (s.dir === 1 && s.x - s.length * fontSize > canvas.width) ||
-                    (s.dir === 2 && s.x + s.length * fontSize < 0)
+                    (s.dir === 0 && s.y - s.length * s.spacing > canvas.height) ||
+                    (s.dir === 1 && s.x - s.length * s.spacing > canvas.width) ||
+                    (s.dir === 2 && s.x + s.length * s.spacing < 0)
                 ) {
                     resetStream(idx);
                 }
             });
         }
 
-        setInterval(drawMatrix, 33);
+        setInterval(drawMatrix, 40); // Nhịp FPS chậm và mượt
     </script>
 </body>
 </html>
