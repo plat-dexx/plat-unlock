@@ -54,7 +54,7 @@
             align-items: center;
         }
 
-        /* HEADER GAMING / CYBERPUNK HUD (GỘP CHUNG 1 KHUNG, BỎ LIQUID GLASS) */
+        /* HEADER GAMING / CYBERPUNK HUD */
         header {
             text-align: center;
             margin-bottom: 30px;
@@ -67,7 +67,6 @@
             background: rgba(10, 15, 25, 0.75);
             padding: 18px 25px;
             border: 2px solid var(--border-cyan);
-            /* Cắt góc kiểu Gaming Cyberpunk HUD */
             clip-path: polygon(
                 15px 0, 100% 0, 
                 100% calc(100% - 15px), calc(100% - 15px) 100%, 
@@ -83,7 +82,6 @@
             gap: 6px;
         }
 
-        /* Chi tiết trang trí góc Gaming */
         .gaming-box::before {
             content: '';
             position: absolute;
@@ -176,7 +174,7 @@
             flex-shrink: 0;
         }
 
-        /* TRẠNG THÁI KHÓA (Nút ẩn nhẹ trong nền, KHÔNG BỊ TỐI ĐEN) */
+        /* TRẠNG THÁI KHÓA */
         .unlock-btn.disabled {
             background: rgba(255, 255, 255, 0.05) !important;
             backdrop-filter: blur(8px);
@@ -315,7 +313,7 @@
     <canvas id="matrix-canvas"></canvas>
 
     <div class="container">
-        <!-- HEADER CYBERPUNK / GAMING KHUNG GỘP CHUNG -->
+        <!-- HEADER CYBERPUNK / GAMING -->
         <header>
             <div class="gaming-box">
                 <h1 class="gaming-title">Plat • Dex</h1>
@@ -341,7 +339,7 @@
                 <span id="txt-step2">Channel Telegram</span>
             </button>
 
-            <!-- Nút 3: Mở Khóa Để Tải -->
+            <!-- Nút 3: Mở Khóa Để Tải (Đã gán link Beacons) -->
             <button id="btn-step3" class="unlock-btn btn-download disabled" onclick="downloadFile()">
                 <svg viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14v-4H8l4-4 4 4h-3v4h-2z"/>
@@ -431,9 +429,10 @@
             }
         }
 
+        // Chuyển hướng đến liên kết Beacons khi người dùng bấm Mở Khoá Để Tải
         function downloadFile() {
             if (step1Completed && step2Completed) {
-                window.location.href = "YOUR_FINAL_DOWNLOAD_LINK_HERE";
+                window.location.href = "https://beacons.ai/plat_dex";
             }
         }
 
