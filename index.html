@@ -168,6 +168,7 @@
             transition: all 0.3s ease;
             position: relative;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
         }
 
         /* Nút TikTok */
@@ -194,10 +195,26 @@
             box-shadow: 0 0 25px rgba(0, 240, 255, 0.8);
         }
 
+        /* Nút Mở Khoá Để Tải (Mới thêm) */
+        .btn-download-unlock {
+            background: linear-gradient(135deg, #ff7300 0%, #fffb00 100%);
+            color: #000000;
+            border: 1px solid #fffb00;
+            clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+            box-shadow: 0 0 15px rgba(255, 251, 0, 0.5);
+            margin-top: 5px;
+        }
+
+        .btn-download-unlock:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 30px rgba(255, 251, 0, 0.9);
+            background: linear-gradient(135deg, #fffb00 0%, #ff7300 100%);
+        }
+
         .unlock-btn svg {
             width: 28px;
             height: 28px;
-            fill: #ffffff;
+            fill: currentColor;
         }
 
         /* FOOTER */
@@ -313,6 +330,14 @@
                 Channel Telegram
             </a>
 
+            <!-- Nút Mở Khoá Để Tải (Nằm ngay dưới Telegram) -->
+            <a href="YOUR_DOWNLOAD_LINK_HERE" class="unlock-btn btn-download-unlock">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                </svg>
+                Mở Khoá Để Tải
+            </a>
+
         </main>
     </div>
 
@@ -333,7 +358,7 @@
         </div>
     </footer>
 
-    <!-- Icon Telegram -->
+    <!-- Icon Telegram Float -->
     <a href="https://t.me/plat_shareios" class="telegram-btn" target="_blank" aria-label="Telegram">
         <svg viewBox="0 0 24 24">
             <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-2.01 9.48c-.15.68-.55.84-1.12.52l-3.1-2.28-1.5 1.44c-.17.17-.31.31-.63.31l.22-3.17 5.77-5.21c.25-.22-.05-.34-.39-.12l-7.13 4.49-3.07-.96c-.67-.21-.68-.67.14-.99l12.01-4.63c.56-.21 1.05.13.83.92z"/>
