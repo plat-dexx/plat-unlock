@@ -104,7 +104,7 @@
             100% { background-position: 200% 50%; }
         }
 
-        /* LOGO CỠ LỚN */
+        /* LOGO TAY CẦM CHƠI GAME */
         .logo-wrapper {
             position: relative;
             display: flex;
@@ -115,7 +115,7 @@
         .logo-svg {
             width: clamp(140px, 26vw, 175px);
             height: clamp(140px, 26vw, 175px);
-            filter: drop-shadow(0 0 18px rgba(0, 136, 255, 0.8)) drop-shadow(0 0 6px rgba(255, 170, 0, 0.8));
+            filter: drop-shadow(0 0 18px rgba(0, 136, 255, 0.8)) drop-shadow(0 0 8px rgba(255, 170, 0, 0.7));
             transition: transform 0.3s ease;
         }
 
@@ -123,39 +123,34 @@
             transform: scale(1.05);
         }
 
-        /* CHỮ 3D IN NỔI ĐỔ BÓNG ĐA TẦNG */
+        /* CHỮ 7 MÀU CHẠY TỪ TRÁI SANG PHẢI */
         .header-main-title {
             font-size: clamp(2rem, 7vw, 2.7rem);
             font-weight: 900;
-            color: #ffffff;
             letter-spacing: 4px;
             text-transform: uppercase;
             margin-top: 10px;
             line-height: 1.15;
-            text-shadow: 
-                1px 1px 0 #d9d9d9,
-                2px 2px 0 #b3b3b3,
-                3px 3px 0 #8c8c8c,
-                4px 4px 0 #595959,
-                5px 5px 0 #333333,
-                6px 6px 0 #111111,
-                7px 7px 14px rgba(0, 0, 0, 0.95),
-                0 0 25px rgba(255, 0, 60, 0.65);
+            background: linear-gradient(90deg, #ff0000, #ff7700, #ffee00, #00ff55, #00e1ff, #0033ff, #8800ff, #ff0000);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: flowRainbow 3.5s linear infinite;
+            filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.35)) drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.95));
         }
 
         .header-sub-title {
             font-size: clamp(0.75rem, 2.8vw, 0.95rem);
             font-weight: 900;
-            color: #ff1e4d;
             letter-spacing: 3px;
             text-transform: uppercase;
             margin-top: 8px;
-            text-shadow: 
-                1px 1px 0 #990024,
-                2px 2px 0 #5c0016,
-                3px 3px 0 #2e000b,
-                4px 4px 6px rgba(0, 0, 0, 0.9),
-                0 0 12px rgba(255, 0, 60, 0.7);
+            background: linear-gradient(90deg, #ff0000, #ff7700, #ffee00, #00ff55, #00e1ff, #0033ff, #8800ff, #ff0000);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: flowRainbow 3.5s linear infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 0, 60, 0.6)) drop-shadow(1px 2px 4px rgba(0, 0, 0, 0.9));
         }
 
         /* KHUNG BỐ CỤC NÚT UNLOCK (GIỮ NGUYÊN CẤU TRÚC & MÀU SẮC) */
@@ -259,7 +254,7 @@
             100% { box-shadow: 0 0 25px rgba(233, 30, 99, 0.9); }
         }
 
-        /* FOOTER (ĐÃ BỎ BẢN ĐỒ GOOGLE MAPS) */
+        /* FOOTER */
         footer {
             width: 100%;
             border-top: 1px solid #141418;
@@ -304,34 +299,72 @@
                     <span class="mech-bolt bolt-bl"></span>
                     <span class="mech-bolt bolt-br"></span>
 
-                    <!-- SVG LOGO CHIM CÚ & KHIÊN -->
+                    <!-- SVG LOGO TAY CẦM CHƠI GAME CYBER MECH -->
                     <div class="logo-wrapper">
-                        <svg class="logo-svg" viewBox="0 0 300 280" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M150 10 L270 50 L250 200 L150 270 L50 200 L30 50 Z" fill="#040a1a" stroke="#0088ff" stroke-width="4"/>
-                            <path d="M150 25 L250 60 L232 190 L150 250 L68 190 L50 60 Z" fill="none" stroke="#ffaa00" stroke-width="6" stroke-linejoin="round"/>
-                            
-                            <!-- Cánh trái -->
-                            <g fill="#0077ff" stroke="#ffaa00" stroke-width="1.5">
-                                <path d="M140 100 Q80 40 20 65 Q60 100 85 125 Q50 105 10 115 Q55 140 90 145 M130 110 L40 160 L100 165 M125 130 L60 195 L110 180" />
-                            </g>
-                            <!-- Cánh phải -->
-                            <g fill="#0077ff" stroke="#ffaa00" stroke-width="1.5">
-                                <path d="M160 100 Q220 40 280 65 Q240 100 215 125 Q250 105 290 115 Q245 140 210 145 M170 110 L260 160 L200 165 M175 130 L240 195 L190 180" />
-                            </g>
-                            
-                            <!-- Đầu Cú -->
-                            <path d="M150 70 L130 95 L120 85 L135 115 L150 120 L165 115 L180 85 L170 95 Z" fill="#00a2ff" stroke="#ffaa00" stroke-width="2"/>
-                            <!-- Mắt cú -->
-                            <polygon points="138,100 146,102 142,108" fill="#ffea00"/>
-                            <polygon points="162,100 154,102 158,108" fill="#ffea00"/>
-                            <!-- Mỏ -->
-                            <polygon points="150,105 145,118 155,118" fill="#ffaa00"/>
-                            <!-- Lông ngực & Đuôi -->
-                            <path d="M135 130 Q150 170 165 130 M140 145 Q150 190 160 145 M145 160 L150 210 L155 160" stroke="#00d4ff" stroke-width="3" fill="none"/>
+                        <svg class="logo-svg" viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="padGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#191e2b"/>
+                                    <stop offset="60%" stop-color="#0b0e14"/>
+                                    <stop offset="100%" stop-color="#040608"/>
+                                </linearGradient>
+                            </defs>
+
+                            <!-- Vỏ viền ngoài tay cầm -->
+                            <path d="M75 55 C105 50, 130 65, 150 65 C170 65, 195 50, 225 55 C255 60, 280 85, 275 135 C270 180, 245 215, 215 210 C190 205, 180 170, 150 170 C120 170, 110 205, 85 210 C55 215, 30 180, 25 135 C20 85, 45 60, 75 55 Z" 
+                                  fill="url(#padGrad)" stroke="#0088ff" stroke-width="3.5" stroke-linejoin="round"/>
+
+                            <!-- Dải viền kim loại 2 bên báng cầm -->
+                            <path d="M45 125 C40 160, 58 190, 80 195 C95 198, 102 180, 108 160" fill="none" stroke="#ffaa00" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M255 125 C260 160, 242 190, 220 195 C205 198, 198 180, 192 160" fill="none" stroke="#ffaa00" stroke-width="2.5" stroke-linecap="round"/>
+
+                            <!-- Cò bấm Trigger L1/R1 -->
+                            <path d="M60 52 C75 35, 105 32, 120 38" fill="none" stroke="#00e1ff" stroke-width="3.5" stroke-linecap="round"/>
+                            <path d="M240 52 C225 35, 195 32, 180 38" fill="none" stroke="#00e1ff" stroke-width="3.5" stroke-linecap="round"/>
+
+                            <!-- Touchpad / Đèn LED Trung tâm -->
+                            <rect x="126" y="70" width="48" height="32" rx="6" fill="#10141d" stroke="#00d4ff" stroke-width="2"/>
+                            <circle cx="150" cy="86" r="5" fill="#ff0055"/>
+
+                            <!-- Cụm Phím D-PAD điều hướng (Trái) -->
+                            <path d="M78 92 h14 v-14 h16 v14 h14 v16 h-14 v14 h-16 v-14 h-14 z" 
+                                  fill="#1b212e" stroke="#00e1ff" stroke-width="2" stroke-linejoin="round"/>
+                            <polygon points="93,82 89,89 97,89" fill="#00e1ff"/>
+                            <polygon points="93,132 89,125 97,125" fill="#00e1ff"/>
+                            <polygon points="83,107 90,103 90,111" fill="#00e1ff"/>
+                            <polygon points="117,107 110,103 110,111" fill="#00e1ff"/>
+
+                            <!-- Cụm Phím Hành Động X Y A B (Phải) -->
+                            <circle cx="205" cy="82" r="8" fill="#1b212e" stroke="#ffee00" stroke-width="2"/>
+                            <text x="205" y="86" font-size="9" font-weight="900" fill="#ffee00" text-anchor="middle" font-family="sans-serif">Y</text>
+
+                            <circle cx="185" cy="100" r="8" fill="#1b212e" stroke="#00e1ff" stroke-width="2"/>
+                            <text x="185" y="104" font-size="9" font-weight="900" fill="#00e1ff" text-anchor="middle" font-family="sans-serif">X</text>
+
+                            <circle cx="225" cy="100" r="8" fill="#1b212e" stroke="#ff003c" stroke-width="2"/>
+                            <text x="225" y="104" font-size="9" font-weight="900" fill="#ff003c" text-anchor="middle" font-family="sans-serif">B</text>
+
+                            <circle cx="205" cy="118" r="8" fill="#1b212e" stroke="#00ff55" stroke-width="2"/>
+                            <text x="205" y="122" font-size="9" font-weight="900" fill="#00ff55" text-anchor="middle" font-family="sans-serif">A</text>
+
+                            <!-- Cần Joystick Analog Trái -->
+                            <circle cx="118" cy="144" r="18" fill="#121620" stroke="#333b4e" stroke-width="2"/>
+                            <circle cx="118" cy="144" r="13" fill="#1a202d" stroke="#0088ff" stroke-width="2"/>
+                            <circle cx="118" cy="144" r="5" fill="#00e1ff"/>
+
+                            <!-- Cần Joystick Analog Phải -->
+                            <circle cx="182" cy="144" r="18" fill="#121620" stroke="#333b4e" stroke-width="2"/>
+                            <circle cx="182" cy="144" r="13" fill="#1a202d" stroke="#0088ff" stroke-width="2"/>
+                            <circle cx="182" cy="144" r="5" fill="#00e1ff"/>
+
+                            <!-- Dây vi mạch trang trí công nghệ -->
+                            <path d="M130 115 L140 126 L160 126 L170 115" fill="none" stroke="#ffaa00" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="130" cy="115" r="2" fill="#ffaa00"/>
+                            <circle cx="170" cy="115" r="2" fill="#ffaa00"/>
                         </svg>
                     </div>
 
-                    <!-- CHỮ 3D NỔI BẬT -->
+                    <!-- CHỮ 7 MÀU NỔI BẬT CHẠY TỪ TRÁI QUA PHẢI -->
                     <h1 class="header-main-title">PLAT • DEX</h1>
                     <p class="header-sub-title">Nơi Các Siêu Nhân Ra Đời</p>
                 </div>
@@ -366,7 +399,7 @@
         </main>
     </div>
 
-    <!-- FOOTER (ĐÃ XÓA GOOGLE MAPS) -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-info">
             <h3>THÔNG TIN CHỦ SỞ HỮU</h3>
