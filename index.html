@@ -297,7 +297,7 @@
             </div>
         </header>
 
-        <!-- DANH SÁCH 4 NÚT THEO THỨ TỰ YÊU CẦU -->
+        <!-- DANH SÁCH NÚT THEO THỨ TỰ -->
         <main class="unlock-container">
             <!-- Nút 1: Đăng Kí Youtube -->
             <button id="btn-step1" class="unlock-btn btn-youtube" onclick="processStep(1, 'https://youtube.com/@plat_dex')">
@@ -307,7 +307,7 @@
                 <span id="txt-step1">Đăng Kí Youtube</span>
             </button>
 
-            <!-- Nút 2: Follow TikTok 1 -->
+            <!-- Nút 2: Follow TikTok -->
             <button id="btn-step2" class="unlock-btn btn-tiktok disabled" onclick="processStep(2, 'https://www.tiktok.com/@plat_dex')">
                 <svg viewBox="0 0 24 24">
                     <path d="M12.525 0h3.08c.089 1.488.75 2.83 1.8 3.82 1.05 1 2.45 1.57 3.965 1.62V8.58c-1.85 0-3.56-.56-4.985-1.52v7.1c0 4.14-3.36 7.5-7.5 7.5S1.39 18.3 1.39 14.16c0-4.14 3.36-7.5 7.5-7.5.38 0 .75.03 1.11.09V9.93c-.36-.08-.73-.12-1.11-.12-2.39 0-4.34 1.95-4.34 4.35 0 2.4 1.95 4.35 4.34 4.35 2.39 0 4.35-1.95 4.35-4.35V0z"/>
@@ -315,15 +315,7 @@
                 <span id="txt-step2">Follow TikTok</span>
             </button>
 
-            <!-- Nút 3: Follow TikTok 2 -->
-            <button id="btn-step3" class="unlock-btn btn-tiktok disabled" onclick="processStep(3, 'https://www.tiktok.com/@duy_lee01')">
-                <svg viewBox="0 0 24 24">
-                    <path d="M12.525 0h3.08c.089 1.488.75 2.83 1.8 3.82 1.05 1 2.45 1.57 3.965 1.62V8.58c-1.85 0-3.56-.56-4.985-1.52v7.1c0 4.14-3.36 7.5-7.5 7.5S1.39 18.3 1.39 14.16c0-4.14 3.36-7.5 7.5-7.5.38 0 .75.03 1.11.09V9.93c-.36-.08-.73-.12-1.11-.12-2.39 0-4.34 1.95-4.34 4.35 0 2.4 1.95 4.35 4.34 4.35 2.39 0 4.35-1.95 4.35-4.35V0z"/>
-                </svg>
-                <span id="txt-step3">Follow TikTok</span>
-            </button>
-
-            <!-- Nút 4: Mở Khóa Để Tải -->
+            <!-- Nút 3: Mở Khóa Để Tải -->
             <button id="btn-step4" class="unlock-btn btn-download disabled" onclick="downloadFile()">
                 <svg viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14v-4H8l4-4 4 4h-3v4h-2z"/>
@@ -342,11 +334,10 @@
         </div>
     </footer>
 
-    <!-- SCRIPT SUBUNLOCK 3 BƯỚC -->
+    <!-- SCRIPT SUBUNLOCK -->
     <script>
         let step1Completed = false;
         let step2Completed = false;
-        let step3Completed = false;
 
         function processStep(stepNum, url) {
             // Bước 1: YouTube
@@ -368,13 +359,13 @@
                         const btn1 = document.getElementById('btn-step1');
                         btn1.classList.add('completed');
 
-                        // Mở khóa Nút TikTok 1
+                        // Mở khóa Nút TikTok
                         const btn2 = document.getElementById('btn-step2');
                         btn2.classList.remove('disabled');
                     }
                 }, 1000);
             } 
-            // Bước 2: TikTok 1
+            // Bước 2: TikTok
             else if (stepNum === 2 && step1Completed && !step2Completed) {
                 window.open(url, '_blank');
                 let count = 5;
@@ -393,32 +384,7 @@
                         const btn2 = document.getElementById('btn-step2');
                         btn2.classList.add('completed');
 
-                        // Mở khóa Nút TikTok 2
-                        const btn3 = document.getElementById('btn-step3');
-                        btn3.classList.remove('disabled');
-                    }
-                }, 1000);
-            }
-            // Bước 3: TikTok 2
-            else if (stepNum === 3 && step2Completed && !step3Completed) {
-                window.open(url, '_blank');
-                let count = 5;
-                const txt = document.getElementById('txt-step3');
-                txt.innerText = `Đang xác minh... (${count}s)`;
-
-                const timer = setInterval(() => {
-                    count--;
-                    if (count > 0) {
-                        txt.innerText = `Đang xác minh... (${count}s)`;
-                    } else {
-                        clearInterval(timer);
-                        step3Completed = true;
-                        txt.innerText = '✓ Đã Hoàn Thành';
-
-                        const btn3 = document.getElementById('btn-step3');
-                        btn3.classList.add('completed');
-
-                        // Mở khóa Nút Tải
+                        // Mở khóa thẳng Nút Tải
                         const btn4 = document.getElementById('btn-step4');
                         btn4.classList.remove('disabled');
                     }
@@ -427,7 +393,7 @@
         }
 
         function downloadFile() {
-            if (step1Completed && step2Completed && step3Completed) {
+            if (step1Completed && step2Completed) {
                 window.location.href = "https://sitetop.net/subunlock-menu";
             }
         }
